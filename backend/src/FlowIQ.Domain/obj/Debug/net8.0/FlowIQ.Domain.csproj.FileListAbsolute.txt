@@ -1,0 +1,11 @@
+C:\FlowIQ\backend\src\FlowIQ.Domain\bin\Debug\net8.0\FlowIQ.Domain.deps.json
+C:\FlowIQ\backend\src\FlowIQ.Domain\bin\Debug\net8.0\FlowIQ.Domain.dll
+C:\FlowIQ\backend\src\FlowIQ.Domain\bin\Debug\net8.0\FlowIQ.Domain.pdb
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\FlowIQ.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\FlowIQ.Domain.AssemblyInfoInputs.cache
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\FlowIQ.Domain.AssemblyInfo.cs
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\FlowIQ.Domain.csproj.CoreCompileInputs.cache
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\FlowIQ.Domain.dll
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\refint\FlowIQ.Domain.dll
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\FlowIQ.Domain.pdb
+C:\FlowIQ\backend\src\FlowIQ.Domain\obj\Debug\net8.0\ref\FlowIQ.Domain.dll

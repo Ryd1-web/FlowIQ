@@ -1,0 +1,59 @@
+<div *ngIf="loading" class="dashboard-loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading && !error">
+  <section class="page-header">
+    <div>
+      <h1>Cashflow Dashboard</h1>
+      <p class="welcome-text">Welcome {{ summary?.businessName || 'Business' }} 👋</p>
+      <p>Track daily in/out movement and overall business liquidity.</p>
+    </div>
+  </section>
+
+  <section class="dashboard-cards">
+    <mat-card class="dashboard-card income">
+      <div class="card-label">Today In</div>
+      <div class="card-value">&#8358;{{ summary?.todayIn | number:'1.0-0' }}</div>
+    </mat-card>
+
+    <mat-card class="dashboard-card expense">
+      <div class="card-label">Today Out</div>
+      <div class="card-value">&#8358;{{ summary?.todayOut | number:'1.0-0' }}</div>
+    </mat-card>
+
+    <mat-card class="dashboard-card" [ngClass]="summary?.netBalance && summary!.netBalance >= 0 ? 'income' : 'expense'">
+      <div class="card-label">Net Balance</div>
+      <div class="card-value">&#8358;{{ summary?.netBalance | number:'1.0-0' }}</div>
+    </mat-card>
+
+    <mat-card class="dashboard-card health">
+      <div class="card-label">Cashflow Health</div>
+      <div class="card-value" [ngClass]="getHealthClass(summary?.cashflowHealth)">
+        {{ summary?.cashflowHealth || 'Pending' }}
+      </div>
+    </mat-card>
+  </section>
+
+  <mat-card class="dashboard-chart-card mat-elevation-z3">
+    <div class="chart-header">
+      <div>
+        <h2>30-Day Cashflow Trend</h2>
+        <p>Income vs expense movement over the latest cycle.</p>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <canvas
+        baseChart
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [legend]="true"
+        [type]="lineChartType"
+      >
+      </canvas>
+    </div>
+  </mat-card>
+</div>
+<div *ngIf="error" class="dashboard-error">
+  <mat-icon>error</mat-icon> {{ error }}
+</div>

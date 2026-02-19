@@ -1,0 +1,37 @@
+<div class="setup-container">
+  <mat-card class="setup-card">
+    <h1>Set Up Your Business</h1>
+    <p>Create your business profile to start tracking cashflow.</p>
+
+    <form (ngSubmit)="createBusiness()">
+      <mat-form-field appearance="outline" class="setup-field">
+        <mat-label>Business Name</mat-label>
+        <input matInput [(ngModel)]="name" name="name" required maxlength="100">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="setup-field">
+        <mat-label>Category</mat-label>
+        <input matInput [(ngModel)]="category" name="category" maxlength="80">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="setup-field">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="description" name="description" maxlength="250">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="setup-field">
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="address" name="address" maxlength="200">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="loading">Create Business</button>
+    </form>
+
+    <mat-progress-spinner *ngIf="loading" diameter="30"></mat-progress-spinner>
+
+    <div *ngIf="error" class="setup-error">
+      <mat-icon>error</mat-icon>
+      <span>{{ error }}</span>
+    </div>
+  </mat-card>
+</div>

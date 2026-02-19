@@ -1,0 +1,54 @@
+<div *ngIf="loading" class="ai-loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading && !error">
+  <section class="insights-header">
+    <h1>AI Insights</h1>
+    <p>Prediction and anomaly recommendations powered by the AI service.</p>
+  </section>
+
+  <section class="insights-grid">
+    <mat-card *ngFor="let insight of insights" class="ai-card">
+      <div class="ai-header">
+        <div class="icon-wrap">
+          <mat-icon>psychology</mat-icon>
+        </div>
+        <span class="ai-title">Recommendation</span>
+        <mat-chip class="risk-chip" [ngClass]="getRiskClass(insight.riskLevel)">
+          {{insight.riskLevel}} Risk
+        </mat-chip>
+      </div>
+      <div class="ai-recommendation">{{insight.recommendation}}</div>
+      <div class="ai-confidence">
+        <mat-icon>analytics</mat-icon>
+        Confidence Score: {{insight.confidence | percent:'1.0-0'}}
+      </div>
+    </mat-card>
+  </section>
+
+  <mat-card class="receipt-card">
+    <h2>Receipt Categorization</h2>
+    <p>Paste receipt text to auto-categorize it with AI.</p>
+    <mat-form-field appearance="outline" class="receipt-field">
+      <mat-label>Receipt Text</mat-label>
+      <textarea matInput rows="4" [(ngModel)]="receiptText"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="button" (click)="categorizeReceipt()" [disabled]="categorizing">
+      Categorize
+    </button>
+
+    <div *ngIf="receiptCategory" class="receipt-result">
+      <mat-chip class="risk-chip risk-low">{{ receiptCategory }}</mat-chip>
+      <span>Confidence: {{ receiptConfidence || 0 | percent:'1.0-0' }}</span>
+    </div>
+
+    <div *ngIf="receiptError" class="receipt-error">
+      <mat-icon>error</mat-icon>
+      <span>{{ receiptError }}</span>
+    </div>
+  </mat-card>
+</div>
+<div *ngIf="error" class="ai-error">
+  <mat-icon>error</mat-icon> {{error}}
+</div>

@@ -1,0 +1,42 @@
+.settings-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  padding: 24px;
+  max-width: 560px;
+}
+
+.settings-card h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+}
+
+.settings-card p {
+  margin: 0 0 16px;
+  color: #64748b;
+}
+
+.settings-form {
+  display: grid;
+  gap: 12px;
+}
+
+.settings-field {
+  width: 100%;
+}
+
+.settings-success,
+.settings-error {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-success {
+  color: #16a34a;
+}
+
+.settings-error {
+  color: #dc2626;
+}

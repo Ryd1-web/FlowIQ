@@ -1,0 +1,15 @@
+C:\FlowIQ\backend\src\FlowIQ.Application\bin\Debug\net8.0\FlowIQ.Application.deps.json
+C:\FlowIQ\backend\src\FlowIQ.Application\bin\Debug\net8.0\FlowIQ.Application.dll
+C:\FlowIQ\backend\src\FlowIQ.Application\bin\Debug\net8.0\FlowIQ.Application.pdb
+C:\FlowIQ\backend\src\FlowIQ.Application\bin\Debug\net8.0\FlowIQ.Domain.dll
+C:\FlowIQ\backend\src\FlowIQ.Application\bin\Debug\net8.0\FlowIQ.Domain.pdb
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.Application.csproj.AssemblyReference.cache
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.Application.AssemblyInfoInputs.cache
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.Application.AssemblyInfo.cs
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.Application.csproj.CoreCompileInputs.cache
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.A.DA2A335E.Up2Date
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.Application.dll
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\refint\FlowIQ.Application.dll
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\FlowIQ.Application.pdb
+C:\FlowIQ\backend\src\FlowIQ.Application\obj\Debug\net8.0\ref\FlowIQ.Application.dll

@@ -1,0 +1,57 @@
+<div *ngIf="loading" class="transactions-loading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!loading && !error" class="management-page">
+  <mat-card class="management-table-card full-span">
+    <div class="header-row">
+      <h2>Income Records</h2>
+      <button mat-raised-button color="primary" type="button" (click)="openAddDialog()">Add Income</button>
+    </div>
+    <div class="table-wrap">
+      <table mat-table [dataSource]="records">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let row">{{ row.date | date:'mediumDate' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="source">
+          <th mat-header-cell *matHeaderCellDef>Source</th>
+          <td mat-cell *matCellDef="let row">{{ row.category }}</td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef>Amount (₦)</th>
+          <td mat-cell *matCellDef="let row" class="amount-income">{{ row.amount | number:'1.0-0' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="notes">
+          <th mat-header-cell *matHeaderCellDef>Notes</th>
+          <td mat-cell *matCellDef="let row">{{ row.description || '-' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button type="button" [matMenuTriggerFor]="actionMenu">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <mat-menu #actionMenu="matMenu">
+              <button mat-menu-item type="button" (click)="openEditDialog(row)">
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item type="button" (click)="openDeleteDialog(row)">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card>
+</div>
+
+<div *ngIf="error" class="transactions-error">
+  <mat-icon>error</mat-icon> {{ error }}
+</div>

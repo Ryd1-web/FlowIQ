@@ -1,0 +1,6 @@
+@FlowIQ.API_HostAddress = http://localhost:5037
+
+GET {{FlowIQ.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

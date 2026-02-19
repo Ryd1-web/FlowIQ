@@ -1,0 +1,37 @@
+.setup-container {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setup-card {
+  width: 480px;
+  max-width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  padding: 24px;
+}
+
+.setup-card h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+}
+
+.setup-card p {
+  margin: 0 0 16px;
+  color: #64748b;
+}
+
+.setup-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.setup-error {
+  margin-top: 12px;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

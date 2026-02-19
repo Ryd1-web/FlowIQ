@@ -1,0 +1,92 @@
+.table-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.table-header h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--text-primary);
+}
+
+.table-header p {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.filter-field {
+  min-width: 220px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 12px;
+}
+
+.type-field {
+  min-width: 140px;
+}
+
+.transactions-loading,
+.transactions-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.transactions-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  padding: 16px;
+  background: var(--surface);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+}
+
+table {
+  width: 100%;
+  min-width: 700px;
+}
+
+.amount-income {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.amount-expense {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .table-header {
+    flex-direction: column;
+  }
+
+  .filter-group {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .filter-field {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .type-field {
+    width: 100%;
+    min-width: 0;
+  }
+}

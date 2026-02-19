@@ -1,0 +1,37 @@
+.navbar {
+  height: 72px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+}
+
+.menu-trigger {
+  margin-right: 8px;
+}
+
+.title-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.app-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.app-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.theme-toggle {
+  margin-right: 4px;
+}

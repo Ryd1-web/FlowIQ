@@ -1,0 +1,58 @@
+.management-page {
+  display: block;
+}
+
+.management-table-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+}
+
+.management-table-card h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+.full-span {
+  width: 100%;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dialog-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  min-width: 320px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 700px;
+}
+
+.amount-income {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.amount-expense {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

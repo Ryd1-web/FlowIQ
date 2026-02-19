@@ -1,0 +1,30 @@
+.dashboard-shell {
+	height: 100vh;
+	background: var(--bg-shell);
+}
+
+.dashboard-sidenav {
+	width: 264px;
+	border-right: 1px solid var(--border-soft);
+	box-shadow: 8px 0 24px rgba(15, 23, 42, 0.04);
+	background: var(--sidenav-bg);
+}
+
+.dashboard-content-shell {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.dashboard-content {
+	flex: 1;
+	padding: 24px;
+	background: radial-gradient(circle at top right, rgba(20, 184, 166, 0.06) 0, transparent 35%),
+		var(--bg-shell);
+}
+
+@media (max-width: 959px) {
+	.dashboard-content {
+		padding: 16px;
+	}
+}

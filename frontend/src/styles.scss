@@ -1,0 +1,99 @@
+@use '@angular/material' as mat;
+
+$primary: mat.define-palette(mat.$green-palette, 600, 300, 900);
+$accent: mat.define-palette(mat.$grey-palette, 500);
+$warn: mat.define-palette(mat.$red-palette);
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+@include mat.core();
+@include mat.all-component-themes($theme);
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-shell: #f3f6f8;
+  --surface: #ffffff;
+  --border-soft: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --navbar-bg: rgba(255, 255, 255, 0.84);
+  --sidenav-bg: linear-gradient(180deg, #f8fafc 0%, #f4f8fb 100%);
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg-shell);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
+.mat-mdc-snack-bar-container.success-snackbar .mdc-snackbar__surface {
+  background: #166534;
+  color: #f8fafc;
+}
+
+.mat-mdc-snack-bar-container.error-snackbar .mdc-snackbar__surface {
+  background: #991b1b;
+  color: #f8fafc;
+}
+
+body.dark-theme {
+  --bg-shell: #0f172a;
+  --surface: #111827;
+  --border-soft: #334155;
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --navbar-bg: rgba(15, 23, 42, 0.9);
+  --sidenav-bg: linear-gradient(180deg, #111827 0%, #0b1220 100%);
+}
+
+body.dark-theme .mat-mdc-card,
+body.dark-theme .mat-mdc-table,
+body.dark-theme .mat-mdc-menu-panel,
+body.dark-theme .mat-expansion-panel {
+  background-color: var(--surface);
+  color: var(--text-primary);
+}
+
+body.dark-theme .mat-toolbar,
+body.dark-theme .mat-drawer {
+  color: var(--text-primary);
+}
+
+body.dark-theme .mat-mdc-form-field .mdc-text-field__input,
+body.dark-theme .mat-mdc-form-field .mat-mdc-floating-label,
+body.dark-theme .mat-mdc-form-field .mat-mdc-form-field-hint,
+body.dark-theme .mat-mdc-select-value-text,
+body.dark-theme .mat-mdc-select-arrow,
+body.dark-theme .mat-mdc-header-cell,
+body.dark-theme .mat-mdc-cell,
+body.dark-theme .mat-mdc-option .mdc-list-item__primary-text,
+body.dark-theme .mat-expansion-panel-header-title,
+body.dark-theme .mat-expansion-panel-header-description,
+body.dark-theme .mat-mdc-list-item-unscoped-content,
+body.dark-theme .mat-mdc-list-item .mat-icon,
+body.dark-theme .mat-mdc-menu-item .mdc-list-item__primary-text,
+body.dark-theme .mat-mdc-menu-item .mat-icon {
+  color: var(--text-primary);
+}

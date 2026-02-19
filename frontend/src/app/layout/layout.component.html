@@ -1,0 +1,20 @@
+<mat-sidenav-container class="dashboard-shell">
+	<mat-sidenav
+		#drawer
+		class="dashboard-sidenav"
+		[mode]="(isHandset$ | async) ? 'over' : 'side'"
+		[opened]="!(isHandset$ | async)"
+	>
+		<app-sidebar (itemSelected)="isHandset ? drawer.close() : null"></app-sidebar>
+	</mat-sidenav>
+
+	<mat-sidenav-content class="dashboard-content-shell">
+		<app-navbar (menuToggle)="drawer.toggle()"></app-navbar>
+
+		<main class="dashboard-content">
+			<router-outlet></router-outlet>
+		</main>
+
+		<app-footer></app-footer>
+	</mat-sidenav-content>
+</mat-sidenav-container>

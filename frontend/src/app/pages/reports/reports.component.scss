@@ -1,0 +1,16 @@
+.placeholder-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  padding: 24px;
+}
+
+.placeholder-card h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+}
+
+.placeholder-card p {
+  margin: 0;
+  color: #64748b;
+}
