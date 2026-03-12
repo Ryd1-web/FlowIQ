@@ -1,0 +1,44 @@
+databases:
+  - name: flowiq-db
+    plan: free
+    databaseName: flowiq
+    user: flowiq_user
+
+services:
+  - type: web
+    name: flowiq-ai
+    plan: free
+    rootDir: ai-service
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+
+  - type: web
+    name: flowiq-api
+    plan: free
+    rootDir: backend
+    buildCommand: dotnet restore src/FlowIQ.API/FlowIQ.API.csproj && dotnet publish src/FlowIQ.API/FlowIQ.API.csproj -c Release -o out
+    startCommand: dotnet out/FlowIQ.API.dll
+    envVars:
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:$PORT
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        fromDatabase:
+          name: flowiq-db
+          property: connectionString
+      - key: AIService__BaseUrl
+        value: https://flowiq-ai.onrender.com
+      - key: JwtSettings__Issuer
+        value: FlowIQ
+      - key: JwtSettings__Audience
+        value: FlowIQ-Users
+      - key: JwtSettings__ExpiryHours
+        value: "24"
+      - key: JwtSettings__Secret
+        generateValue: true
+      - key: AllowedOrigins__0
+        value: https://your-vercel-app.vercel.app
