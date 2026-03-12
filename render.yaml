@@ -6,6 +6,7 @@ databases:
 
 services:
   - type: web
+    runtime: python
     name: flowiq-ai
     plan: free
     rootDir: ai-service
@@ -16,11 +17,11 @@ services:
         value: 3.11.9
 
   - type: web
+    runtime: docker
     name: flowiq-api
     plan: free
-    rootDir: backend
-    buildCommand: dotnet restore src/FlowIQ.API/FlowIQ.API.csproj && dotnet publish src/FlowIQ.API/FlowIQ.API.csproj -c Release -o out
-    startCommand: dotnet out/FlowIQ.API.dll
+    dockerContext: backend
+    dockerfilePath: backend/Dockerfile
     envVars:
       - key: ASPNETCORE_URLS
         value: http://0.0.0.0:$PORT
