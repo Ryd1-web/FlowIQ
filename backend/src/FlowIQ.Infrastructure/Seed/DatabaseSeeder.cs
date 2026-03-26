@@ -106,6 +106,7 @@ public static class DatabaseSeeder
         catch (Exception ex)
         {
             logger.LogError(ex, "Error seeding database.");
+            throw;
         }
     }
 }
