@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlowIQ.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+637ecab408eb0e96cc58e62f6e3545553e241714")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlowIQ.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlowIQ.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

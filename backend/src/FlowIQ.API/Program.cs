@@ -76,13 +76,10 @@ await DatabaseSeeder.SeedAsync(app.Services);
 
 // Middleware pipeline
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FlowIQ API v1"));
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FlowIQ API v1"));
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
 }
