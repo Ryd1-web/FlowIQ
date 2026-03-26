@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Npgsql;
 
 namespace FlowIQ.Infrastructure;
 
@@ -18,8 +19,9 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         // Database
+        var connectionString = NormalizePostgresConnectionString(configuration.GetConnectionString("DefaultConnection"));
         services.AddDbContext<FlowIQDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(connectionString));
 
         // Repositories
         services.AddScoped<IUserRepository, UserRepository>();
@@ -95,5 +97,32 @@ public static class DependencyInjection
         services.AddAuthorization();
 
         return services;
+    }
+
+    private static string NormalizePostgresConnectionString(string? connectionString)
+    {
+        if (string.IsNullOrWhiteSpace(connectionString))
+            throw new InvalidOperationException("Database connection string is not configured.");
+
+        if (connectionString.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase) ||
+            connectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase))
+        {
+            var uri = new Uri(connectionString);
+            var userInfo = uri.UserInfo.Split(':', 2);
+            var builder = new NpgsqlConnectionStringBuilder
+            {
+                Host = uri.Host,
+                Port = uri.Port > 0 ? uri.Port : 5432,
+                Username = Uri.UnescapeDataString(userInfo[0]),
+                Password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : string.Empty,
+                Database = uri.AbsolutePath.Trim('/'),
+                SslMode = SslMode.Require,
+                TrustServerCertificate = true
+            };
+
+            return builder.ConnectionString;
+        }
+
+        return connectionString;
     }
 }
