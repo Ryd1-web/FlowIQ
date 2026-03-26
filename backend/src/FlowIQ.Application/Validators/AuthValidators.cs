@@ -30,3 +30,13 @@ public class VerifyOtpRequestValidator : AbstractValidator<VerifyOtpRequest>
             .Length(6).WithMessage("OTP must be 6 digits.");
     }
 }
+
+public class OtpRequestValidator : AbstractValidator<OtpRequest>
+{
+    public OtpRequestValidator()
+    {
+        RuleFor(x => x.PhoneNumber)
+            .NotEmpty().WithMessage("Phone number is required.")
+            .Matches(@"^(\+234|0)[789]\d{9}$").WithMessage("Enter a valid Nigerian phone number.");
+    }
+}

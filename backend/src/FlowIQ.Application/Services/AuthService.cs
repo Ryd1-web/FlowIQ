@@ -19,6 +19,9 @@ public class AuthService : IAuthService
 
     public async Task<OtpResponse> RegisterAsync(RegisterRequest request)
     {
+        if (string.IsNullOrWhiteSpace(request.PhoneNumber))
+            throw new BadRequestException("Phone number is required.");
+
         var phone = request.PhoneNumber.Trim();
         var existingUser = await _userRepository.GetByPhoneNumberAsync(phone);
         if (existingUser != null)
@@ -42,6 +45,9 @@ public class AuthService : IAuthService
 
     public async Task<OtpResponse> RequestOtpAsync(string phoneNumber)
     {
+        if (string.IsNullOrWhiteSpace(phoneNumber))
+            throw new BadRequestException("Phone number is required.");
+
         phoneNumber = phoneNumber.Trim();
         var user = await _userRepository.GetByPhoneNumberAsync(phoneNumber)
             ?? throw new NotFoundException("User", phoneNumber);
@@ -56,6 +62,12 @@ public class AuthService : IAuthService
 
     public async Task<AuthResponse> VerifyOtpAsync(VerifyOtpRequest request)
     {
+        if (string.IsNullOrWhiteSpace(request.PhoneNumber))
+            throw new BadRequestException("Phone number is required.");
+
+        if (string.IsNullOrWhiteSpace(request.OtpCode))
+            throw new BadRequestException("OTP code is required.");
+
         var phone = request.PhoneNumber.Trim();
         var user = await _userRepository.GetByPhoneNumberAsync(phone)
             ?? throw new NotFoundException("User", phone);
